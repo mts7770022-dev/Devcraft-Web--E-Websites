@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Future School | Al-Muawiyah Campus Kahna Nau</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a; /* Deep Royal Blue */
+            --secondary: #2563eb; /* Bright Blue */
+            --accent: #f59e0b; /* Educational Gold/Amber */
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .top-bar-info span {
+            margin-right: 15px;
+        }
+
+        .admin-login-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .admin-login-btn:hover {
+            background: #d97706;
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .school-title h1 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .school-title span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .btn-apply {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-apply:hover {
+            background: var(--primary);
+        }
+
+        /* Ticker / Announcement Bar */
+        .ticker-bar {
+            background: #e0f2fe;
+            border-left: 5px solid var(--secondary);
+            padding: 10px 5%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+
+        .ticker-title {
+            background: var(--secondary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        marquee {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.75)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* Sections General */
+        section {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+        }
+
+        /* Admin Panel Container (Demo Hidden by default) */
+        #adminPanel {
+            display: none;
+            background: #fef3c7;
+            border: 2px dashed var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 5%;
+        }
+
+        .admin-form-group {
+            margin-bottom: 15px;
+        }
+
+        .admin-form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .admin-form-group input, .admin-form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Notice Board Section */
+        .notices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .notice-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .notice-card .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .notice-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Admission Form */
+        .admission-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+        }
+
+        /* Downloads Section */
+        .download-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .download-item {
+            background: var(--white);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .download-btn {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        /* Agency Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 40px 5% 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .agency-credit {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span><i class="fa-solid fa-phone"></i> 0304-4765887</span>
+            <span><i class="fa-solid fa-location-dot"></i> Al-Muawiyah Campus, Kahna Nau, Lahore</span>
+        </div>
+        <button class="admin-login-btn" onclick="toggleAdminPanel()"><i class="fa-solid fa-lock"></i> Principal Login (Demo)</button>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo-container">
+            <i class="fa-solid fa-graduation-cap logo-icon"></i>
+            <div class="school-title">
+                <h1>BRIGHT FUTURE SCHOOL</h1>
+                <span>Al-Muawiyah Campus — Kahna Nau</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#notices">Notices</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+            </ul>
+        </nav>
+        <a href="#admission" class="btn-apply">Online Admission</a>
+    </header>
+
+    <!-- Scrolling Notice Bar -->
+    <div class="ticker-bar">
+        <span class="ticker-title"><i class="fa-solid fa-bullhorn"></i> Latest News:</span>
+        <marquee>Admissions Open for Academic Session 2026-27 | Annual Exam Date Sheet Uploaded | Parent-Teacher Meeting on Saturday</marquee>
+    </div>
+
+    <!-- Hero Banner Section -->
+    <section class="hero" id="home">
+        <h2>Empowering Young Minds For A Brighter Tomorrow</h2>
+        <p>Providing Quality Education, Discipline, and Modern Learning at Al-Muawiyah Campus, Kahna Nau.</p>
+        <a href="#admission" class="btn-apply" style="padding: 12px 30px; font-size: 1.1rem;">Apply For Admission</a>
+    </section>
+
+    <!-- Principal Admin Panel (Simulated Portal Demo) -->
+    <div id="adminPanel">
+        <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fa-solid fa-user-shield"></i> Principal Control Panel (Add Notice / Result)</h3>
+        <p style="font-size: 0.85rem; color: #78350f; margin-bottom: 15px;">*This controls what students/parents can see. Only logged-in Principal can post updates.</p>
+        <div class="admin-form-group">
+            <label>Notice Title:</label>
+            <input type="text" id="noticeTitle" placeholder="e.g. Matric Exam Result 2026 Announced">
+        </div>
+        <div class="admin-form-group">
+            <label>Notice Description / File Link:</label>
+            <textarea id="noticeDesc" rows="3" placeholder="Enter notice details or PDF document link..."></textarea>
+        </div>
+        <button class="btn-apply" onclick="publishNotice()" style="border:none; cursor:pointer;">Publish Notice to Website</button>
+    </div>
+
+    <!-- Notice Board Section -->
+    <section id="notices">
+        <div class="section-title">
+            <h3>Notice Board & Announcements</h3>
+        </div>
+        <div class="notices-grid" id="noticesContainer">
+            <div class="notice-card">
+                <div class="date"><i class="fa-regular fa-calendar"></i> October 2026</div>
+                <h4>Matriculation Result 2026 PDF</h4>
+                <p>Top position holders and overall class results have been published. Download the PDF result card below.</p>
+            </div>
+            <div class="notice-card">
+                <div class="date"><i class="fa-regular fa-calendar"></i> October 2026</div>
+                <h4>Autumn Break Notice</h4>
+                <p>School will remain closed from Friday to Monday. Regular classes resume on Tuesday morning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" style="background: #f1f5f9;">
+        <div class="section-title">
+            <h3>Campus Life & Gallery</h3>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Classroom"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Library"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&q=80" alt="Sports Day"></div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads">
+        <div class="section-title">
+            <h3>Downloads & Syllabus</h3>
+        </div>
+        <ul class="download-list">
+            <li class="download-item">
+                <span><i class="fa-solid fa-file-pdf" style="color: #ef4444; margin-right: 10px;"></i> Admission Prospectus 2026-27</span>
+                <a href="#" class="download-btn"><i class="fa-solid fa-download"></i> Download</a>
+            </li>
+            <li class="download-item">
+                <span><i class="fa-solid fa-file-pdf" style="color: #ef4444; margin-right: 10px;"></i> Monthly Exam Schedule</span>
+                <a href="#" class="download-btn"><i class="fa-solid fa-download"></i> Download</a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Admission Section -->
+    <section id="admission" style="background: #f1f5f9;">
+        <div class="section-title">
+            <h3>Online Admission Request</h3>
+        </div>
+        <div class="admission-container">
+            <form onsubmit="alert('Admission Request Submitted Successfully!'); return false;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Student Full Name</label>
+                        <input type="text" required placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Father/Guardian Name</label>
+                        <input type="text" required placeholder="Father Name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Target Class</label>
+                        <select required>
+                            <option value="">Select Class</option>
+                            <option>Playgroup / Nursery</option>
+                            <option>Primary (1 - 5)</option>
+                            <option>Middle (6 - 8)</option>
+                            <option>Matric (9th & 10th)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone / WhatsApp Number</label>
+                        <input type="tel" required placeholder="03xx-xxxxxxx">
+                    </div>
+                </div>
+                <button type="submit" class="btn-apply" style="width: 100%; border: none; padding: 12px; margin-top: 10px; cursor: pointer;">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923044765887" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Bright Future School</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 8px;">Al-Muawiyah Campus, Kahna Nau, Lahore</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Phone: 0304-4765887</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 8px;">• Fee Structure</p>
+                <p style="font-size: 0.85rem; opacity: 0.8;">• Academic Calendar</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bright Future School Kahna Nau. All Rights Reserved.</p>
+            <p style="margin-top: 5px;">Designed & Developed by <a href="#" class="agency-credit">DevCraft Web</a></p>
+        </div>
+    </footer>
+
+    <!-- JS for Principal Login Demo Simulation -->
+    <script>
+        function toggleAdminPanel() {
+            var panel = document.getElementById("adminPanel");
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+                window.location.href = "#adminPanel";
+            }
+        }
+
+        function publishNotice() {
+            var title = document.getElementById("noticeTitle").value;
+            var desc = document.getElementById("noticeDesc").value;
+
+            if (title === "" || desc === "") {
+                alert("Please fill out both notice title and description.");
+                return;
+            }
+
+            var noticesContainer = document.getElementById("noticesContainer");
+            var newNotice = document.createElement("div");
+            newNotice.className = "notice-card";
+            newNotice.style.borderTop = "4px solid #f59e0b";
+            newNotice.innerHTML = `
+                <div class="date"><i class="fa-regular fa-calendar"></i> Just Now (By Principal)</div>
+                <h4>${title}</h4>
+                <p>${desc}</p>
+            `;
+
+            noticesContainer.prepend(newNotice);
+            document.getElementById("noticeTitle").value = "";
+            document.getElementById("noticeDesc").value = "";
+            alert("New notice published successfully onto the website!");
+        }
+    </script>
+</body>
+</html>
